@@ -23,145 +23,50 @@
             --card-bg: rgba(255, 255, 255, 0.75); 
         }
 
-        * { 
-            margin: 0; 
-            padding: 0; 
-            box-sizing: border-box; 
-            -webkit-tap-highlight-color: transparent;
-        }
-
+        * { margin: 0; padding: 0; box-sizing: border-box; -webkit-tap-highlight-color: transparent; }
         html { scroll-behavior: auto; overflow-y: scroll; } 
-
         body {
-            font-family: 'Tajawal', sans-serif;
-            color: var(--text-dark); 
-            background-color: var(--offwhite);
-            min-height: 100vh;
-            overflow-x: hidden;
+            font-family: 'Tajawal', sans-serif; color: var(--text-dark); 
+            background-color: var(--offwhite); min-height: 100vh; overflow-x: hidden;
         }
 
-        /* DYNAMIC RESPONSIVE BACKGROUND IMAGE */
         body::before {
-            content: "";
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background-image: url("pc_background.webp"); 
-            background-size: cover;
-            background-position: center center;
-            background-repeat: no-repeat;
-            z-index: -1;
-            box-shadow: inset 0 0 0 2000px rgba(255, 255, 255, 0.3);
+            content: ""; position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+            background-image: url("pc_background.webp"); background-size: cover;
+            background-position: center center; background-repeat: no-repeat;
+            z-index: -1; box-shadow: inset 0 0 0 2000px rgba(255, 255, 255, 0.3);
         }
 
         @media screen and (max-width: 768px) {
-            body::before {
-                background-image: url("mobile_background.webp");
-                background-position: top center;
-            }
+            body::before { background-image: url("mobile_background.webp"); background-position: top center; }
         }
 
-        /* =========================================
-           GO BACK BUTTON (Arabic - Kept on Left)
-           ========================================= */
         .go-back-btn {
-            position: fixed;
-            top: 20px;
-            left: 20px; 
-            z-index: 9999;
-            background: var(--card-bg);
-            color: var(--rose);
-            border: 1px solid var(--border-color);
-            border-radius: 50%;
-            width: 45px;
-            height: 45px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            cursor: pointer;
-            backdrop-filter: blur(5px);
-            transition: all 0.3s ease;
-            font-size: 18px;
+            position: fixed; top: 20px; left: 20px; z-index: 9999;
+            background: var(--card-bg); color: var(--rose); border: 1px solid var(--border-color);
+            border-radius: 50%; width: 45px; height: 45px; display: flex; align-items: center;
+            justify-content: center; cursor: pointer; backdrop-filter: blur(5px); transition: all 0.3s ease; font-size: 18px;
         }
-        .go-back-btn:hover {
-            background: var(--rose);
-            color: var(--white);
-        }
+        .go-back-btn:hover { background: var(--rose); color: var(--white); }
 
-        /* =========================================
-           2. SOLID OPAQUE OVERLAY & OPEN BUTTON
-           ========================================= */
         #blur-overlay {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background-color: var(--offwhite); 
-            z-index: 10000;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            transition: opacity 1s ease; 
+            position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+            background-color: var(--offwhite); z-index: 10000; display: flex;
+            justify-content: center; align-items: center; transition: opacity 1s ease; 
         }
 
         .open-circle-btn {
-            width: 140px;
-            height: 140px;
-            background: var(--white);
-            color: var(--rose); 
-            border-radius: 50%;
-            border: 3px solid var(--rose); 
-            font-family: 'Amiri', serif;
-            font-size: 28px;
-            font-weight: 700;
-            cursor: pointer;
-            box-shadow: 0 10px 30px rgba(166, 123, 130, 0.2); 
+            width: 140px; height: 140px; background: var(--white); color: var(--rose); 
+            border-radius: 50%; border: 3px solid var(--rose); font-family: 'Amiri', serif;
+            font-size: 28px; font-weight: 700; cursor: pointer; box-shadow: 0 10px 30px rgba(166, 123, 130, 0.2); 
             transition: transform 0.3s ease, background 0.3s ease, color 0.3s ease;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            position: relative;
-            z-index: 2;
+            display: flex; justify-content: center; align-items: center; position: relative; z-index: 2;
         }
+        .open-circle-btn:hover { transform: scale(1.05); background: var(--rose); color: var(--white); box-shadow: 0 15px 40px rgba(166, 123, 130, 0.4); }
 
-        .open-circle-btn:hover {
-            transform: scale(1.05);
-            background: var(--rose);
-            color: var(--white);
-            box-shadow: 0 15px 40px rgba(166, 123, 130, 0.4);
-        }
-
-        /* =========================================
-           3. MAIN CONTENT
-           ========================================= */
-        .main-content {
-            position: relative;
-            z-index: 1;
-            text-align: center;
-            width: 100%;
-            max-width: 500px;
-            padding: 80px 20px 150px 20px;
-            margin: 0 auto;
-        }
-
-        .title { 
-            font-family: 'Amiri', serif; 
-            font-size: 30px; 
-            margin-bottom: 10px; 
-            color: var(--rose);
-        }
-
-        .announcement { 
-            font-size: 14px; 
-            font-weight: 700; 
-            line-height: 1.6; 
-            margin-bottom: 20px; 
-            color: var(--text-muted);
-        }
-
+        .main-content { position: relative; z-index: 1; text-align: center; width: 100%; max-width: 500px; padding: 80px 20px 150px 20px; margin: 0 auto; }
+        .title { font-family: 'Amiri', serif; font-size: 30px; margin-bottom: 10px; color: var(--rose); }
+        .announcement { font-size: 14px; font-weight: 700; line-height: 1.6; margin-bottom: 20px; color: var(--text-muted); }
         .blue-line { width: 40px; height: 1px; background-color: var(--rose); margin: 0 auto 30px; }
         .mini-blue-line { width: 45px; height: 2px; background-color: var(--rose); margin: 40px auto 15px; }
 
@@ -170,9 +75,6 @@
         .role { font-size: 13px; font-weight: 700; letter-spacing: 1px; color: var(--text-muted); }
         .small-ampersand { font-family: 'Playfair Display', serif; font-style: italic; font-size: 28px; color: var(--rose); margin: 5px 0; }
 
-        /* =========================================
-           4. GALLERY, INFO, COUNTDOWN & CALENDAR
-           ========================================= */
         .gallery-title { font-family: 'Amiri', serif; font-size: 28px; margin-bottom: 25px; font-weight: 700; color: var(--rose); }
 
         .reception-section { margin-bottom: 30px; }
@@ -193,7 +95,7 @@
         .map-link-btn:hover { background: var(--rose-light); }
 
         /* =========================================
-           5. RSVP SECTION
+           5. RSVP SECTION & ADMIN DASHBOARD
            ========================================= */
         .rsvp-section { margin-bottom: 50px; padding: 0 10px; }
         .rsvp-placeholder-box { background: var(--card-bg); padding: 25px; border-radius: 25px; max-width: 400px; margin: 0 auto; border: 1px dashed var(--border-color); box-shadow: 0 10px 20px rgba(0,0,0,0.1); backdrop-filter: blur(5px); }
@@ -208,12 +110,47 @@
         .rsvp-confirm-btn { width: 100%; padding: 16px; background: var(--rose); color: var(--white); border: none; border-radius: 50px; font-weight: 700; font-size: 16px; cursor: pointer; transition: 0.3s; font-family: 'Tajawal', sans-serif;}
         .rsvp-confirm-btn:hover { background: #8e656c; box-shadow: 0 5px 15px var(--rose-light); }
 
+        /* Admin Check Guests Button */
+        .admin-check-btn {
+            display: none; /* Hidden by default */
+            margin: 25px auto 0;
+            padding: 12px 35px;
+            background: transparent;
+            border: 1.5px solid #c2c9d6;
+            border-radius: 50px;
+            font-family: 'Tajawal', sans-serif;
+            font-size: 15px;
+            font-weight: 800;
+            color: #1a1a1a;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+        .admin-check-btn:hover { background: rgba(0,0,0,0.03); }
+
+        /* Admin Guest List Modal */
+        #admin-modal-overlay {
+            display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100vh;
+            background: rgba(0, 0, 0, 0.5); z-index: 40000; justify-content: center; align-items: center; backdrop-filter: blur(4px);
+        }
+        .admin-modal-content {
+            background: #faf8f5; width: 90%; max-width: 380px; border-radius: 20px; padding: 35px 20px 20px;
+            position: relative; text-align: center; max-height: 80vh; display: flex; flex-direction: column;
+            box-shadow: 0 15px 40px rgba(0,0,0,0.2);
+        }
+        .admin-close { position: absolute; top: 15px; left: 20px; font-size: 24px; color: #b3b3b3; cursor: pointer; font-family: sans-serif; font-weight: 300;}
+        .admin-modal-title { font-family: 'Amiri', serif; font-size: 24px; font-weight: 700; margin-bottom: 10px; color: #000; }
+        .admin-divider { width: 50px; height: 1.5px; background: #000; margin: 0 auto 15px; }
+        .admin-summary { font-size: 14px; font-weight: 700; line-height: 2; margin-bottom: 20px; color: #333; }
+        .admin-list-container { overflow-y: auto; text-align: right; border-top: 1px solid #eaeaea; flex-grow: 1; padding-top: 10px; direction: rtl; }
+        .admin-guest-item { border-bottom: 1px solid #f0f0f0; padding: 12px 10px; display: flex; flex-direction: column; gap: 4px; }
+        .admin-guest-name { font-weight: 800; font-size: 14px; color: #000; }
+        .admin-guest-companions { font-size: 13px; color: #555; }
+
         /* =========================================
            6. GUEST GALLERY & VOICE RECORD 
            ========================================= */
         .upload-btn { background: transparent; border: 1px dashed var(--rose); color: var(--rose); padding: 20px; border-radius: 15px; cursor: pointer; width: 100%; margin-bottom: 20px; transition: all 0.3s ease; font-weight: 800; font-family: 'Tajawal', sans-serif; }
         .upload-btn:hover { background: var(--rose-light); }
-
         .guest-photo-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 10px; margin-bottom: 20px; }
         .guest-photo-item { position: relative; aspect-ratio: 1; background: var(--white); border-radius: 10px; border: 1px solid var(--border-color); display: flex; align-items: center; justify-content: center; color: var(--text-muted); font-size: 24px; overflow: hidden; cursor: pointer; }
         .guest-photo-item img { width: 100%; height: 100%; object-fit: cover; border-radius: 10px; }
@@ -225,7 +162,6 @@
         #lightbox-prev { right: 20px; left: auto; }
         #lightbox-next { left: 20px; right: auto; }
         #lightbox-close { position: absolute; top: 20px; left: 30px; right: auto; font-size: 35px; color: white; cursor: pointer; font-weight: bold; z-index: 30001; }
-
         .delete-btn { position: absolute; top: 8px; left: 8px; right: auto; background: rgba(255, 255, 255, 0.85); color: var(--rose); border: 1px solid var(--border-color); border-radius: 20px; padding: 6px 14px; cursor: pointer; z-index: 10; display: flex; align-items: center; justify-content: center; font-size: 11px; font-weight: 800; font-family: 'Tajawal', sans-serif; backdrop-filter: blur(4px); transition: all 0.3s ease; }
         .delete-btn:hover { background: var(--rose); color: var(--white); }
 
@@ -236,14 +172,12 @@
         .voice-item audio { width: 85%; height: 35px; outline: none; }
 
         /* =========================================
-           7. GUESTBOOK SECTION & BUTTONS
+           7. GUESTBOOK SECTION
            ========================================= */
         .guestbook-section { margin-top: 50px; margin-bottom: 20px; }
         .guestbook-form { max-width: 350px; margin: 20px auto; display: flex; flex-direction: column; gap: 12px; }
         .guestbook-form input, .guestbook-form textarea { padding: 15px; border-radius: 15px; border: 1px solid var(--border-color); background: var(--card-bg); color: var(--text-dark); font-family: 'Tajawal', sans-serif; font-size: 15px; width: 100%; outline: none; transition: 0.3s; backdrop-filter: blur(5px); }
-        .guestbook-form input::placeholder, .guestbook-form textarea::placeholder { color: var(--text-muted); opacity: 0.7; }
         .guestbook-form input:focus, .guestbook-form textarea:focus { border-color: var(--rose); box-shadow: 0 0 10px var(--rose-light); }
-
         .oval-btn-small { padding: 15px; background: var(--rose); color: var(--white); border-radius: 50px; border: none; font-weight: 800; cursor: pointer; transition: transform 0.3s ease, box-shadow 0.3s ease; font-family: 'Tajawal', sans-serif; font-size: 15px;}
         .oval-btn-small:hover { transform: translateY(-2px); box-shadow: 0 5px 15px var(--rose-light); }
 
@@ -271,11 +205,6 @@
         .nav-item i { font-size: 18px; }
         .nav-item span { font-size: 10px; font-weight: 800; font-family: 'Tajawal', sans-serif; }
 
-        .location-submenu { position: absolute; bottom: 85px; transform: translateX(50%) scale(0); background: var(--card-bg); border: 1px solid var(--border-color); width: 180px; border-radius: 20px; box-shadow: 0 10px 30px rgba(0,0,0,0.1); transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275); transform-origin: bottom center; visibility: hidden; opacity: 0; backdrop-filter: blur(10px); }
-        .location-submenu.active { transform: translateX(50%) scale(1); visibility: visible; opacity: 1; }
-        .location-submenu a { display: flex; align-items: center; gap: 12px; padding: 18px; text-decoration: none; color: var(--rose); font-size: 15px; font-weight: 700; transition: 0.2s; }
-        .location-submenu a:hover { background: var(--rose-light); }
-
         @media screen and (max-width: 768px) {
             .main-content { padding: 40px 15px 140px 15px; }
             .title { font-size: 26px; }
@@ -295,6 +224,23 @@
         <button class="lightbox-nav" id="lightbox-prev" onclick="changeSlide(-1)">&#10095;</button>
         <img id="lightbox-img" src="" alt="Fullscreen View">
         <button class="lightbox-nav" id="lightbox-next" onclick="changeSlide(1)">&#10094;</button>
+    </div>
+
+    <!-- ADMIN GUEST LIST MODAL -->
+    <div id="admin-modal-overlay">
+        <div class="admin-modal-content">
+            <span class="admin-close" onclick="closeAdminModal()">×</span>
+            <h3 class="admin-modal-title">قائمة الضيوف</h3>
+            <div class="admin-divider"></div>
+            <div class="admin-summary">
+                الدعوات المفتوحة: <span id="admin-opens-count">0</span><br>
+                الضيوف الأساسيون: <span id="admin-primary-count">0</span><br>
+                المرافقون: <span id="admin-companion-count">0</span>
+            </div>
+            <div class="admin-list-container" id="admin-guest-list">
+                <!-- Populated by JS -->
+            </div>
+        </div>
     </div>
 
     <!-- GO BACK BUTTON -->
@@ -376,6 +322,9 @@
 
                 <button type="button" class="rsvp-confirm-btn" id="rsvp-submit-btn">تأكيد الحضور 💍</button>
             </div>
+            
+            <!-- ADMIN ONLY BUTTON -->
+            <button class="admin-check-btn" id="admin-check-btn" onclick="openAdminModal()">التحقق من عدد الضيوف</button>
         </div>
 
         <!-- GUEST PHOTO-ONLY GALLERY SECTION -->
@@ -428,7 +377,7 @@
         </div>
     </div>
 
-    <!-- FLOATING NAVIGATION BAR -->
+    <!-- FLOATING NAVIGATION BAR WITHOUT SUBMENUS -->
     <nav class="floating-nav">
         <div class="nav-container">
             <a href="javascript:void(0)" onclick="scrollToSection('guest-gallery-section')" class="nav-item">
@@ -458,22 +407,72 @@
     <script src="https://www.gstatic.com/firebasejs/10.8.0/firebase-firestore-compat.js"></script>
 
     <script>
-        if ('scrollRestoration' in history) {
-            history.scrollRestoration = 'manual';
-        }
+        if ('scrollRestoration' in history) { history.scrollRestoration = 'manual'; }
         window.scrollTo(0, 0);
 
+        /* ================= FIREBASE INITIALIZATION ================= */
+        const firebaseConfig = {
+            apiKey: "AIzaSyA77x9K906LWvFKF_Hby5mjlvZwqX10Dkw",
+            authDomain: "mirzam-invitations.firebaseapp.com",
+            projectId: "mirzam-invitations",
+            storageBucket: "mirzam-invitations.firebasestorage.app",
+            messagingSenderId: "1017281284114",
+            appId: "1:1017281284114:web:681b4f89a61606edfd70cb",
+            measurementId: "G-0R01RBPW1V"
+        };
+        firebase.initializeApp(firebaseConfig);
+        const db = firebase.firestore();
+
+        /* ================= ADMIN & USER ID SETUP ================= */
         const urlParams = new URLSearchParams(window.location.search);
         if (urlParams.get('admin') === 'true') {
             localStorage.setItem('is_wedding_admin', 'true');
             window.history.replaceState({}, document.title, window.location.pathname);
-            alert("تم تفعيل وضع المسؤول. يمكنك الآن حذف أي رسالة أو صورة.");
+            alert("تم تفعيل وضع المسؤول. يمكنك الآن حذف أي رسالة أو صورة ومراجعة قائمة الضيوف.");
         }
         const isAdmin = localStorage.getItem('is_wedding_admin') === 'true';
 
         let myUserId = localStorage.getItem('wedding_user_id') || 'user_' + Math.random().toString(36).substr(2, 9);
         localStorage.setItem('wedding_user_id', myUserId);
 
+        /* ================= ADMIN DASHBOARD LOGIC ================= */
+        function openAdminModal() { document.getElementById('admin-modal-overlay').style.display = 'flex'; }
+        function closeAdminModal() { document.getElementById('admin-modal-overlay').style.display = 'none'; }
+
+        if (isAdmin) {
+            document.getElementById('admin-check-btn').style.display = 'block';
+            
+            // Listen to Opens
+            db.collection("mz_396981_3441_opens").onSnapshot(snap => {
+                document.getElementById('admin-opens-count').innerText = snap.size;
+            });
+
+            // Listen to RSVPs
+            db.collection("mz_396981_3441_rsvp").orderBy("timestamp", "desc").onSnapshot(snap => {
+                let primaryCount = snap.size;
+                let companionsCount = 0;
+                const listContainer = document.getElementById('admin-guest-list');
+                listContainer.innerHTML = '';
+
+                snap.forEach(doc => {
+                    const data = doc.data();
+                    companionsCount += (data.companions || 0);
+
+                    const item = document.createElement('div');
+                    item.className = 'admin-guest-item';
+                    item.innerHTML = `
+                        <div class="admin-guest-name">${data.name}</div>
+                        <div class="admin-guest-companions">المرافقون: ${data.companions || 0}</div>
+                    `;
+                    listContainer.appendChild(item);
+                });
+
+                document.getElementById('admin-primary-count').innerText = primaryCount;
+                document.getElementById('admin-companion-count').innerText = companionsCount;
+            });
+        }
+
+        /* ================= UI AND MUSIC LOGIC ================= */
         const weddingAudio = document.getElementById("weddingMusic");
         const navMusicIcon = document.getElementById("navMusicIcon");
         const navMusicText = document.getElementById("navMusicText");
@@ -482,9 +481,7 @@
         let isAutoScrolling = false;
 
         function stopAutoScroll(e) {
-            if (e && e.target && e.target.closest('[onclick="toggleMusic()"]')) {
-                return; 
-            }
+            if (e && e.target && e.target.closest('[onclick="toggleMusic()"]')) { return; }
             if (isAutoScrolling) {
                 isAutoScrolling = false;
                 cancelAnimationFrame(autoScrollId);
@@ -496,19 +493,19 @@
             }
         }
 
-        // OPEN INVITATION LOGIC WITH TRACKER
         function openInvitation() {
             const overlay = document.getElementById('blur-overlay');
 
-            weddingAudio.play().then(() => {
-                updateMusicUI();
-            }).catch(e => console.log("Audio playback failed:", e));
+            // Track the open event for the Admin Dashboard
+            db.collection("mz_396981_3441_opens").doc(myUserId).set({
+                lastOpened: firebase.firestore.FieldValue.serverTimestamp()
+            }, { merge: true }).catch(err => console.log("Tracking error", err));
 
+            weddingAudio.play().then(() => { updateMusicUI(); }).catch(e => console.log("Audio playback failed:", e));
             overlay.style.opacity = '0';
             
             setTimeout(() => {
                 overlay.style.display = 'none';
-                
                 isAutoScrolling = true;
                 window.addEventListener('wheel', stopAutoScroll, { passive: true });       
                 window.addEventListener('touchmove', stopAutoScroll, { passive: true });   
@@ -534,12 +531,10 @@
             window.scrollTo({ top: 0, behavior: 'instant' });
             const overlay = document.getElementById('blur-overlay');
             overlay.style.display = 'flex';
-            setTimeout(() => {
-                overlay.style.opacity = '1';
-            }, 50);
+            setTimeout(() => { overlay.style.opacity = '1'; }, 50);
         }
 
-        /* --- LIGHTBOX GALLERY NAVIGATION LOGIC --- */
+        /* --- LIGHTBOX LOGIC --- */
         let galleryImages = [];
         let currentIndex = 0;
 
@@ -550,25 +545,16 @@
             document.getElementById('lightbox-modal').style.display = 'flex';
         }
 
-        function closeLightbox() {
-            document.getElementById('lightbox-modal').style.display = 'none';
-        }
-
+        function closeLightbox() { document.getElementById('lightbox-modal').style.display = 'none'; }
         function changeSlide(direction) {
             if (galleryImages.length === 0) return;
             currentIndex += direction;
-            if (currentIndex < 0) {
-                currentIndex = galleryImages.length - 1;
-            } else if (currentIndex >= galleryImages.length) {
-                currentIndex = 0;
-            }
+            if (currentIndex < 0) { currentIndex = galleryImages.length - 1; } 
+            else if (currentIndex >= galleryImages.length) { currentIndex = 0; }
             updateLightboxImage();
         }
-
         function updateLightboxImage() {
-            if (galleryImages.length > 0) {
-                document.getElementById('lightbox-img').src = galleryImages[currentIndex];
-            }
+            if (galleryImages.length > 0) { document.getElementById('lightbox-img').src = galleryImages[currentIndex]; }
         }
 
         document.addEventListener('keydown', (e) => {
@@ -581,35 +567,12 @@
         });
 
         /* --- NAV TOGGLES --- */
-        function toggleLocationMenu(event) {
-            event.stopPropagation();
-            document.getElementById('locationSubMenu').classList.toggle('active');
-            document.getElementById('gallerySubMenu').classList.remove('active');
-        }
-
-        function toggleGalleryMenu(event) {
-            event.stopPropagation();
-            document.getElementById('gallerySubMenu').classList.toggle('active');
-            document.getElementById('locationSubMenu').classList.remove('active');
-        }
-
-        document.addEventListener('click', (e) => {
-            const locMenu = document.getElementById('locationSubMenu');
-            const galMenu = document.getElementById('gallerySubMenu');
-            if (locMenu && !locMenu.contains(e.target)) locMenu.classList.remove('active');
-            if (galMenu && !galMenu.contains(e.target)) galMenu.classList.remove('active');
-        });
-
         function scrollToSection(id) {
             const section = document.getElementById(id);
             if (section) {
                 stopAutoScroll(); 
                 section.scrollIntoView({ behavior: 'smooth', block: 'start' });
             }
-            const locMenu = document.getElementById('locationSubMenu');
-            const galMenu = document.getElementById('gallerySubMenu');
-            if (locMenu) locMenu.classList.remove('active');
-            if (galMenu) galMenu.classList.remove('active');
         }
 
         function toggleMusic() {
@@ -642,19 +605,6 @@
                 document.getElementById("seconds").innerText = Math.floor((diff % 60000) / 1000).toString().padStart(2, '0');
             }
         }, 1000);
-
-        /* ================= FIREBASE INITIALIZATION ================= */
-        const firebaseConfig = {
-            apiKey: "AIzaSyA77x9K906LWvFKF_Hby5mjlvZwqX10Dkw",
-            authDomain: "mirzam-invitations.firebaseapp.com",
-            projectId: "mirzam-invitations",
-            storageBucket: "mirzam-invitations.firebasestorage.app",
-            messagingSenderId: "1017281284114",
-            appId: "1:1017281284114:web:681b4f89a61606edfd70cb",
-            measurementId: "G-0R01RBPW1V"
-        };
-        firebase.initializeApp(firebaseConfig);
-        const db = firebase.firestore();
 
         /* ================= CLOUDINARY CONFIGURATION ================= */
         const CLOUDINARY_CLOUD_NAME = "k0qku3iy"; 
