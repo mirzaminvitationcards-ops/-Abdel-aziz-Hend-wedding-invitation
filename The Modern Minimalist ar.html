@@ -1,0 +1,1045 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>دعوة زفاف - عبد العزيز و هند</title>
+    
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Amiri:ital,wght@0,400;0,700;1,400&family=Tajawal:wght@300;400;500;700;800&family=Cinzel:wght@700&family=Playfair+Display:ital,wght@1,400&family=Montserrat:wght@800&display=swap" rel="stylesheet">
+    
+    <style>
+        /* =========================================
+           1. FONTS & OFF-WHITE FLORAL VARIABLES
+           ========================================= */
+        :root {
+            --offwhite: #F8F6F0;    
+            --rose: #a67b82;        
+            --rose-light: rgba(166, 123, 130, 0.15);   
+            --text-dark: #2c2c2c;   
+            --text-muted: #666666;      
+            --white: #ffffff;
+            --border-color: rgba(166, 123, 130, 0.3);
+            --card-bg: rgba(255, 255, 255, 0.75); 
+        }
+
+        * { 
+            margin: 0; 
+            padding: 0; 
+            box-sizing: border-box; 
+            -webkit-tap-highlight-color: transparent;
+        }
+
+        html { scroll-behavior: auto; overflow-y: scroll; } 
+
+        body {
+            font-family: 'Tajawal', sans-serif;
+            color: var(--text-dark); 
+            background-color: var(--offwhite);
+            min-height: 100vh;
+            overflow-x: hidden;
+        }
+
+        /* DYNAMIC RESPONSIVE BACKGROUND IMAGE */
+        body::before {
+            content: "";
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: url("pc_background.webp"); 
+            background-size: cover;
+            background-position: center center;
+            background-repeat: no-repeat;
+            z-index: -1;
+            box-shadow: inset 0 0 0 2000px rgba(255, 255, 255, 0.3);
+        }
+
+        @media screen and (max-width: 768px) {
+            body::before {
+                background-image: url("mobile_background.webp");
+                background-position: top center;
+            }
+        }
+
+        /* =========================================
+           GO BACK BUTTON (Arabic - Kept on Left)
+           ========================================= */
+        .go-back-btn {
+            position: fixed;
+            top: 20px;
+            left: 20px; 
+            z-index: 9999;
+            background: var(--card-bg);
+            color: var(--rose);
+            border: 1px solid var(--border-color);
+            border-radius: 50%;
+            width: 45px;
+            height: 45px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            backdrop-filter: blur(5px);
+            transition: all 0.3s ease;
+            font-size: 18px;
+        }
+        .go-back-btn:hover {
+            background: var(--rose);
+            color: var(--white);
+        }
+
+        /* =========================================
+           2. SOLID OPAQUE OVERLAY & OPEN BUTTON
+           ========================================= */
+        #blur-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: var(--offwhite); 
+            z-index: 10000;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            transition: opacity 1s ease; 
+        }
+
+        .open-circle-btn {
+            width: 140px;
+            height: 140px;
+            background: var(--white);
+            color: var(--rose); 
+            border-radius: 50%;
+            border: 3px solid var(--rose); 
+            font-family: 'Amiri', serif;
+            font-size: 28px;
+            font-weight: 700;
+            cursor: pointer;
+            box-shadow: 0 10px 30px rgba(166, 123, 130, 0.2); 
+            transition: transform 0.3s ease, background 0.3s ease, color 0.3s ease;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            position: relative;
+            z-index: 2;
+        }
+
+        .open-circle-btn:hover {
+            transform: scale(1.05);
+            background: var(--rose);
+            color: var(--white);
+            box-shadow: 0 15px 40px rgba(166, 123, 130, 0.4);
+        }
+
+        /* =========================================
+           3. MAIN CONTENT
+           ========================================= */
+        .main-content {
+            position: relative;
+            z-index: 1;
+            text-align: center;
+            width: 100%;
+            max-width: 500px;
+            padding: 80px 20px 150px 20px;
+            margin: 0 auto;
+        }
+
+        .title { 
+            font-family: 'Amiri', serif; 
+            font-size: 30px; 
+            margin-bottom: 10px; 
+            color: var(--rose);
+        }
+
+        .announcement { 
+            font-size: 14px; 
+            font-weight: 700; 
+            line-height: 1.6; 
+            margin-bottom: 20px; 
+            color: var(--text-muted);
+        }
+
+        .blue-line { width: 40px; height: 1px; background-color: var(--rose); margin: 0 auto 30px; }
+        .mini-blue-line { width: 45px; height: 2px; background-color: var(--rose); margin: 40px auto 15px; }
+
+        .names-stack { display: flex; flex-direction: column; align-items: center; gap: 4px; margin-bottom: 50px; }
+        .main-name { font-family: 'Amiri', serif; font-size: 40px; font-weight: 700; color: var(--text-dark); }
+        .role { font-size: 13px; font-weight: 700; letter-spacing: 1px; color: var(--text-muted); }
+        .small-ampersand { font-family: 'Playfair Display', serif; font-style: italic; font-size: 28px; color: var(--rose); margin: 5px 0; }
+
+        /* =========================================
+           4. GALLERY, INFO, COUNTDOWN & CALENDAR
+           ========================================= */
+        .gallery-title { font-family: 'Amiri', serif; font-size: 28px; margin-bottom: 25px; font-weight: 700; color: var(--rose); }
+
+        .reception-section { margin-bottom: 30px; }
+        .big-time { display: block; font-size: 40px; font-weight: 800; color: var(--text-dark); font-family: 'Montserrat', sans-serif;}
+        .big-date { display: block; font-size: 16px; font-weight: 700; margin: 10px 0 20px; color: var(--text-muted); }
+
+        .countdown-container { display: flex; justify-content: center; gap: 12px; margin-top: 25px; direction: ltr; }
+        .time-unit { background: var(--white); padding: 12px 0; border-radius: 12px; width: 75px; display: flex; flex-direction: column; align-items: center; justify-content: center; box-shadow: 0 5px 15px rgba(166, 123, 130, 0.15); border: 1px solid var(--border-color); }
+        .time-unit span { font-size: 26px; font-weight: 800; line-height: 1; margin-bottom: 5px; color: var(--rose); font-variant-numeric: tabular-nums; font-family: 'Montserrat', sans-serif;}
+        .time-unit label { font-size: 11px; font-weight: 800; color: var(--text-muted); display: block; font-family: 'Tajawal', sans-serif; }
+
+        .calendar-wrapper { width: 100%; max-width: 360px; margin: 30px auto 50px auto; border-radius: 20px; box-shadow: 0 15px 35px rgba(166, 123, 130, 0.15); background: var(--white); border: 1px solid var(--border-color); overflow: hidden; }
+        .calendar-wrapper img { width: 100%; display: block; }
+
+        .venue-name { font-family: 'Amiri', serif; font-size: 26px; font-weight: 700; color: var(--text-dark); }
+        .venue-location { font-size: 15px; line-height: 1.6; margin: 5px 0 15px; color: var(--text-muted); font-style: italic; }
+        .map-link-btn { display: inline-block; padding: 14px 45px; background: transparent; border: 1.5px solid var(--rose); color: var(--rose); border-radius: 50px; text-decoration: none; font-weight: 800; font-size: 14px; transition: all 0.3s ease; }
+        .map-link-btn:hover { background: var(--rose-light); }
+
+        /* =========================================
+           5. RSVP SECTION
+           ========================================= */
+        .rsvp-section { margin-bottom: 50px; padding: 0 10px; }
+        .rsvp-placeholder-box { background: var(--card-bg); padding: 25px; border-radius: 25px; max-width: 400px; margin: 0 auto; border: 1px dashed var(--border-color); box-shadow: 0 10px 20px rgba(0,0,0,0.1); backdrop-filter: blur(5px); }
+        .rsvp-input { width: 100%; padding: 15px 20px; border-radius: 15px; border: 1px solid var(--border-color); background: var(--white); color: var(--text-dark); margin-bottom: 15px; font-family: 'Tajawal', sans-serif; outline: none; font-size: 14px; transition: 0.3s; }
+        .rsvp-input:focus { border-color: var(--rose); box-shadow: 0 0 10px var(--rose-light); }
+        .guest-counter-container { display: flex; justify-content: space-between; align-items: center; background: transparent; padding: 12px 20px; border-radius: 15px; border: 1px solid var(--border-color); margin-bottom: 20px; }
+        .guest-label { font-size: 14px; color: var(--text-muted); font-weight: 700; }
+        .counter-controls { display: flex; align-items: center; justify-content: center; gap: 20px; }
+        .cnt-btn { display: flex; align-items: center; justify-content: center; background: transparent; color: var(--rose); border: none; font-size: 20px; cursor: pointer; transition: 0.2s;}
+        .cnt-btn:hover { transform: scale(1.2); }
+        #guest-count-display { font-size: 20px; font-weight: 800; min-width: 30px; text-align: center; color: var(--text-dark); font-family: 'Montserrat', sans-serif;}
+        .rsvp-confirm-btn { width: 100%; padding: 16px; background: var(--rose); color: var(--white); border: none; border-radius: 50px; font-weight: 700; font-size: 16px; cursor: pointer; transition: 0.3s; font-family: 'Tajawal', sans-serif;}
+        .rsvp-confirm-btn:hover { background: #8e656c; box-shadow: 0 5px 15px var(--rose-light); }
+
+        /* =========================================
+           6. GUEST GALLERY & VOICE RECORD 
+           ========================================= */
+        .upload-btn { background: transparent; border: 1px dashed var(--rose); color: var(--rose); padding: 20px; border-radius: 15px; cursor: pointer; width: 100%; margin-bottom: 20px; transition: all 0.3s ease; font-weight: 800; font-family: 'Tajawal', sans-serif; }
+        .upload-btn:hover { background: var(--rose-light); }
+
+        .guest-photo-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 10px; margin-bottom: 20px; }
+        .guest-photo-item { position: relative; aspect-ratio: 1; background: var(--white); border-radius: 10px; border: 1px solid var(--border-color); display: flex; align-items: center; justify-content: center; color: var(--text-muted); font-size: 24px; overflow: hidden; cursor: pointer; }
+        .guest-photo-item img { width: 100%; height: 100%; object-fit: cover; border-radius: 10px; }
+
+        #lightbox-modal { display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100vh; background: rgba(0, 0, 0, 0.95); z-index: 30000; justify-content: center; align-items: center; backdrop-filter: blur(5px); }
+        #lightbox-modal img { max-width: 85%; max-height: 85vh; border-radius: 10px; box-shadow: 0 10px 40px rgba(0,0,0,0.8); object-fit: contain; }
+        .lightbox-nav { position: absolute; top: 50%; transform: translateY(-50%); background: rgba(255, 255, 255, 0.2); color: white; border: none; padding: 15px 20px; font-size: 24px; cursor: pointer; border-radius: 50%; transition: 0.3s; z-index: 30001; }
+        .lightbox-nav:hover { background: rgba(255, 255, 255, 0.4); }
+        #lightbox-prev { right: 20px; left: auto; }
+        #lightbox-next { left: 20px; right: auto; }
+        #lightbox-close { position: absolute; top: 20px; left: 30px; right: auto; font-size: 35px; color: white; cursor: pointer; font-weight: bold; z-index: 30001; }
+
+        .delete-btn { position: absolute; top: 8px; left: 8px; right: auto; background: rgba(255, 255, 255, 0.85); color: var(--rose); border: 1px solid var(--border-color); border-radius: 20px; padding: 6px 14px; cursor: pointer; z-index: 10; display: flex; align-items: center; justify-content: center; font-size: 11px; font-weight: 800; font-family: 'Tajawal', sans-serif; backdrop-filter: blur(4px); transition: all 0.3s ease; }
+        .delete-btn:hover { background: var(--rose); color: var(--white); }
+
+        .voice-btn { width: 80px; height: 80px; border-radius: 50%; background: var(--white); border: 2px solid var(--rose); color: var(--rose); font-size: 30px; display: flex; align-items: center; justify-content: center; margin: 0 auto 15px; cursor: pointer; transition: all 0.3s ease; box-shadow: 0 5px 15px rgba(0,0,0,0.1); }
+        .voice-btn:hover { background: var(--rose-light); transform: scale(1.05); }
+        .voice-messages-container { display: flex; flex-direction: column; gap: 10px; margin-top: 20px; }
+        .voice-item { position: relative; background: var(--card-bg); padding: 10px 15px; border-radius: 15px; border: 1px solid var(--border-color); display: flex; align-items: center; justify-content: space-between; }
+        .voice-item audio { width: 85%; height: 35px; outline: none; }
+
+        /* =========================================
+           7. GUESTBOOK SECTION & BUTTONS
+           ========================================= */
+        .guestbook-section { margin-top: 50px; margin-bottom: 20px; }
+        .guestbook-form { max-width: 350px; margin: 20px auto; display: flex; flex-direction: column; gap: 12px; }
+        .guestbook-form input, .guestbook-form textarea { padding: 15px; border-radius: 15px; border: 1px solid var(--border-color); background: var(--card-bg); color: var(--text-dark); font-family: 'Tajawal', sans-serif; font-size: 15px; width: 100%; outline: none; transition: 0.3s; backdrop-filter: blur(5px); }
+        .guestbook-form input::placeholder, .guestbook-form textarea::placeholder { color: var(--text-muted); opacity: 0.7; }
+        .guestbook-form input:focus, .guestbook-form textarea:focus { border-color: var(--rose); box-shadow: 0 0 10px var(--rose-light); }
+
+        .oval-btn-small { padding: 15px; background: var(--rose); color: var(--white); border-radius: 50px; border: none; font-weight: 800; cursor: pointer; transition: transform 0.3s ease, box-shadow 0.3s ease; font-family: 'Tajawal', sans-serif; font-size: 15px;}
+        .oval-btn-small:hover { transform: translateY(-2px); box-shadow: 0 5px 15px var(--rose-light); }
+
+        .wish-card { position: relative; background: var(--card-bg); padding: 20px; border-radius: 20px; margin-top: 15px; text-align: right; border: 1px solid var(--border-color); box-shadow: 0 5px 15px rgba(0,0,0,0.05); backdrop-filter: blur(5px); }
+        .wish-card h4 { font-size: 15px; font-weight: 800; color: var(--rose); margin-bottom: 5px; }
+        .wish-card p { font-size: 15px; color: var(--text-dark); line-height: 1.5; }
+        .delete-wish-btn { position: absolute; top: 15px; left: 15px; right: auto; background: rgba(166, 123, 130, 0.15); color: var(--rose); border: none; padding: 5px 10px; border-radius: 5px; font-size: 11px; cursor: pointer; transition: 0.3s; font-weight: 700; font-family: 'Tajawal', sans-serif; z-index: 10; }
+        .delete-wish-btn:hover { background: var(--rose); color: var(--white); transform: scale(1.05); }
+
+        /* =========================================
+           8. MIRZAM CREDIT FOOTER 
+           ========================================= */
+        .credit-badge-container { display: flex; flex-direction: column; align-items: center; margin-top: 30px; padding-bottom: 20px; gap: 10px; }
+        .made-by-text { font-size: 12px; color: var(--text-muted); font-weight: 700; }
+        .mirzam-circular-logo { width: 45px; height: 45px; border-radius: 50%; object-fit: cover; border: 2px solid var(--rose); box-shadow: 0 4px 15px rgba(166, 123, 130, 0.2); transition: transform 0.3s ease, box-shadow 0.3s ease; }
+        .mirzam-circular-logo:hover { transform: scale(1.1); box-shadow: 0 6px 20px rgba(166, 123, 130, 0.4); }
+
+        /* =========================================
+           9. FLOATING TAB BAR
+           ========================================= */
+        .floating-nav { position: fixed; bottom: 20px; left: 50%; transform: translateX(-50%); width: 95%; max-width: 500px; background: rgba(255, 255, 255, 0.95); backdrop-filter: blur(10px); height: 70px; border-radius: 50px; box-shadow: 0 10px 40px rgba(0,0,0,0.1); border: 1px solid var(--border-color); z-index: 9999; display: flex; align-items: center; }
+        .nav-container { display: flex; width: 100%; justify-content: space-around; align-items: center; padding: 0 10px; }
+        .nav-item { flex: 1; text-align: center; color: var(--text-muted); display: flex; flex-direction: column; align-items: center; gap: 4px; text-decoration: none; cursor: pointer; border: none; background: none; transition: color 0.3s ease; }
+        .nav-item:hover { color: var(--rose); }
+        .nav-item i { font-size: 18px; }
+        .nav-item span { font-size: 10px; font-weight: 800; font-family: 'Tajawal', sans-serif; }
+
+        .location-submenu { position: absolute; bottom: 85px; transform: translateX(50%) scale(0); background: var(--card-bg); border: 1px solid var(--border-color); width: 180px; border-radius: 20px; box-shadow: 0 10px 30px rgba(0,0,0,0.1); transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275); transform-origin: bottom center; visibility: hidden; opacity: 0; backdrop-filter: blur(10px); }
+        .location-submenu.active { transform: translateX(50%) scale(1); visibility: visible; opacity: 1; }
+        .location-submenu a { display: flex; align-items: center; gap: 12px; padding: 18px; text-decoration: none; color: var(--rose); font-size: 15px; font-weight: 700; transition: 0.2s; }
+        .location-submenu a:hover { background: var(--rose-light); }
+
+        @media screen and (max-width: 768px) {
+            .main-content { padding: 40px 15px 140px 15px; }
+            .title { font-size: 26px; }
+            .main-name { font-size: 34px; }
+            .countdown-container { gap: 8px; }
+            .time-unit { width: 65px; padding: 10px 0; }
+            .time-unit span { font-size: 22px; }
+            .floating-nav { bottom: 15px; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- FULLSCREEN LIGHTBOX GALLERY MODAL -->
+    <div id="lightbox-modal">
+        <span id="lightbox-close" onclick="closeLightbox()">&times;</span>
+        <button class="lightbox-nav" id="lightbox-prev" onclick="changeSlide(-1)">&#10095;</button>
+        <img id="lightbox-img" src="" alt="Fullscreen View">
+        <button class="lightbox-nav" id="lightbox-next" onclick="changeSlide(1)">&#10094;</button>
+    </div>
+
+    <!-- GO BACK BUTTON -->
+    <button onclick="closeInvitation()" class="go-back-btn" title="العودة">
+        <i class="fas fa-arrow-left"></i>
+    </button>
+
+    <!-- COMPLETELY OPAQUE OVERLAY -->
+    <div id="blur-overlay">
+        <button class="open-circle-btn" onclick="openInvitation()">افتح</button>
+    </div>
+
+    <!-- AUDIO ELEMENT -->
+    <audio id="weddingMusic" loop>
+        <source src="wedding-song.mp3" type="audio/mpeg">
+    </audio>
+
+    <!-- MAIN CONTENT -->
+    <div class="main-content" id="main-content-section">
+        <h1 class="title">تفاصيل الزفاف</h1>
+        
+        <p class="announcement">نتشرف بدعوتكم لحضور<br>حفل زفاف</p>
+        <div class="blue-line"></div>
+
+        <div class="names-stack">
+            <h2 class="main-name">عبد العزيز</h2>
+            <span class="role">العريس</span>
+            <span class="small-ampersand">&</span>
+            <h2 class="main-name">هند</h2>
+            <span class="role">العروس</span>
+        </div>
+
+        <div class="reception-section" id="reception-section">
+            <div class="mini-blue-line"></div>
+            <h2 class="gallery-title">تفاصيل الحفل</h2>
+            <div class="time-date-box">
+                <span class="big-time">07:00 مساءً</span>
+                <span class="big-date">الاربع | 04 | نوفمبر</span>
+            </div>
+            
+            <!-- COUNTDOWN SECTION -->
+            <div id="countdown" class="countdown-container">
+                <div class="time-unit"><span id="days">00</span><label>أيام</label></div>
+                <div class="time-unit"><span id="hours">00</span><label>ساعات</label></div>
+                <div class="time-unit"><span id="minutes">00</span><label>دقائق</label></div>
+                <div class="time-unit"><span id="seconds">00</span><label>ثواني</label></div>
+            </div>
+        </div>
+
+        <div class="calendar-wrapper">
+            <img src="The_Modern_Minimalist_calendar.webp" alt="December 2026 Calendar">
+        </div>
+
+        <div class="venue-section" id="venue-section">
+            <div class="mini-blue-line"></div> 
+            <h3 class="gallery-title">موقع الحفل</h3>
+            <p class="venue-name">Bella sera</p>
+            <p class="venue-location">نادي ضباط الشرطه حدايق اكتوبر</p>
+            <a href="https://www.google.com/maps?q=W3JG+345+%D9%86%D8%A7%D8%AF%D9%89+%D8%A7%D9%84%D8%B4%D8%B1%D8%B7%D8%A9+%D8%AD%D8%AF%D8%A7%D8%A6%D9%82+%D8%A7%D9%83%D8%AA%D9%88%D8%A8%D8%B1%D8%8C+%D8%A7%D9%84%D9%82%D8%A7%D9%87%D8%B1%D8%A9+-+%D8%A7%D9%84%D9%88%D8%A7%D8%AD%D8%A7%D8%AA+%D8%A7%D9%84%D8%A8%D8%AD%D8%B1%D9%8A%D8%A9%D8%8C+%D9%82%D8%B3%D9%85+%D8%A3%D9%88%D9%84+6+%D8%A3%D9%83%D8%AA%D9%88%D8%A8%D8%B1%D8%8C+%D8%AD%D8%AF%D8%A7%D8%A6%D9%82+%D8%A3%D9%83%D8%AA%D9%88%D8%A8%D8%B1%D8%8C+%D9%85%D8%AD%D8%A7%D9%81%D8%B8%D8%A9+%D8%A7%D9%84%D8%AC%D9%8A%D8%B2%D8%A9+3283021&ftid=0x145851de2369f26d:0x87d379e91bdf048b&entry=gps&shh=CAE&lucs=,94297699,94231188,94280568,47071704,94218641,94282134,100813469,94286869,100820247,100822499&g_ep=CAISEjI2LjMzLjEuOTYxODkxNDMyMBgAIIgnKl0sOTQyOTc2OTksOTQyMzExODgsOTQyODA1NjgsNDcwNzE3MDQsOTQyMTg2NDEsOTQyODIxMzQsMTAwODEzNDY5LDk0Mjg2ODY5LDEwMDgyMDI0NywxMDA4MjI0OTlCAkVH&skid=854964a6-f427-4e0c-a237-1fc128802d99&g_st=iwb" target="_blank" class="map-link-btn">عرض على الخريطة</a>
+        </div>
+
+        <!-- RSVP SECTION -->
+        <div class="rsvp-section" id="rsvp-section">
+            <div class="mini-blue-line"></div>
+            <h3 class="gallery-title">تأكيد الحضور</h3>
+            <p class="announcement" style="margin-bottom: 20px;">هل ستشاركنا فرحتنا؟ قم بتأكيد حضورك</p>
+            
+            <div class="rsvp-placeholder-box">
+                <input type="text" class="rsvp-input" id="rsvp-name-input" placeholder="اسمك" required>
+                
+                <div class="guest-counter-container">
+                    <span class="guest-label">الضيوف المرافقين</span>
+                    <div class="counter-controls">
+                        <button type="button" class="cnt-btn" id="decrease-guest-btn">−</button>
+                        <span id="guest-count-display">0</span>
+                        <button type="button" class="cnt-btn" id="increase-guest-btn">+</button>
+                    </div>
+                </div>
+
+                <button type="button" class="rsvp-confirm-btn" id="rsvp-submit-btn">تأكيد الحضور 💍</button>
+            </div>
+        </div>
+
+        <!-- GUEST PHOTO-ONLY GALLERY SECTION -->
+        <div class="guest-gallery-section" id="guest-gallery-section" style="margin-top: 50px;">
+            <div class="mini-blue-line"></div>
+            <h3 class="gallery-title">ذكريات الضيوف</h3>
+            <p class="announcement">شاركنا صورك المفضلة</p>
+
+            <input type="file" id="photo-upload-input" accept="image/*" style="display: none;">
+            <button class="upload-btn" id="upload-photo-btn">
+                <i class="fas fa-camera-retro" style="font-size: 24px; margin-bottom: 10px; display: block;"></i>
+                شارك صورة
+            </button>
+            <div class="guest-photo-grid" id="guest-photo-grid"></div>
+        </div>
+
+        <!-- VOICE MESSAGE SECTION -->
+        <div class="voice-message-section" id="voice-message-section" style="margin-top: 50px;">
+            <div class="mini-blue-line"></div>
+            <h3 class="gallery-title">التهاني الصوتية</h3>
+            <p class="announcement">سجل رسالة صوتية للعروسين</p>
+            <button class="voice-btn" id="record-voice-btn">
+                <i class="fas fa-microphone"></i>
+            </button>
+            <p id="voice-status-text" style="font-size: 13px; color: var(--text-muted); font-weight: 700; text-transform: uppercase; letter-spacing: 2px;">اضغط للتسجيل</p>
+
+            <div class="voice-messages-container" id="voice-messages-display"></div>
+        </div>
+
+        <!-- GUESTBOOK SECTION -->
+        <div class="guestbook-section" id="guestbook-section">
+            <div class="mini-blue-line"></div>
+            <h3 class="gallery-title">سجل الزوار</h3>
+            <p class="announcement" style="margin-bottom: 20px;">اترك أمنياتك وتهانيك للعروسين</p>
+            
+            <form id="guestbook-form" class="guestbook-form">
+                <input type="text" id="guest-name" placeholder="اسمك" required>
+                <textarea id="guest-wish" placeholder="اكتب أمنياتك هنا..." rows="4" required></textarea>
+                <button type="submit" class="oval-btn-small">إرسال الأمنيات</button>
+            </form>
+            <div id="wishes-display" class="wishes-container"></div>
+        </div>
+        
+        <!-- MIRZAM CREDIT BADGE -->
+        <div class="credit-badge-container">
+            <span class="made-by-text">made by mirzam</span> 
+            <a href="https://mirzam.me/en/" target="_blank">
+                <img src="Mirazam's-logo.webp" alt="Mirzam Logo" class="mirzam-circular-logo">
+            </a>
+        </div>
+    </div>
+
+    <!-- FLOATING NAVIGATION BAR -->
+    <nav class="floating-nav">
+        <div class="nav-container">
+            <a href="javascript:void(0)" onclick="scrollToSection('guest-gallery-section')" class="nav-item">
+                <i class="far fa-images"></i><span>الصور</span>
+            </a>
+            <a href="javascript:void(0)" onclick="scrollToSection('voice-message-section')" class="nav-item">
+                <i class="fas fa-microphone"></i><span>الصوت</span>
+            </a>
+            <a href="javascript:void(0)" onclick="scrollToSection('rsvp-section')" class="nav-item">
+                <i class="far fa-heart"></i><span>الحضور</span>
+            </a>
+            <a href="javascript:void(0)" onclick="scrollToSection('venue-section')" class="nav-item">
+                <i class="fas fa-map-marker-alt"></i><span>المكان</span>
+            </a>
+            <a href="javascript:void(0)" onclick="scrollToSection('guestbook-section')" class="nav-item">
+                <i class="far fa-comment-dots"></i><span>التهاني</span>
+            </a>
+            <div class="nav-item" onclick="toggleMusic()" style="cursor:pointer;">
+                <i id="navMusicIcon" class="fas fa-pause"></i>
+                <span id="navMusicText">إيقاف</span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- FIREBASE & SCRIPTS -->
+    <script src="https://www.gstatic.com/firebasejs/10.8.0/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/10.8.0/firebase-firestore-compat.js"></script>
+
+    <script>
+        if ('scrollRestoration' in history) {
+            history.scrollRestoration = 'manual';
+        }
+        window.scrollTo(0, 0);
+
+        const urlParams = new URLSearchParams(window.location.search);
+        if (urlParams.get('admin') === 'true') {
+            localStorage.setItem('is_wedding_admin', 'true');
+            window.history.replaceState({}, document.title, window.location.pathname);
+            alert("تم تفعيل وضع المسؤول. يمكنك الآن حذف أي رسالة أو صورة.");
+        }
+        const isAdmin = localStorage.getItem('is_wedding_admin') === 'true';
+
+        let myUserId = localStorage.getItem('wedding_user_id') || 'user_' + Math.random().toString(36).substr(2, 9);
+        localStorage.setItem('wedding_user_id', myUserId);
+
+        const weddingAudio = document.getElementById("weddingMusic");
+        const navMusicIcon = document.getElementById("navMusicIcon");
+        const navMusicText = document.getElementById("navMusicText");
+
+        let autoScrollId;
+        let isAutoScrolling = false;
+
+        function stopAutoScroll(e) {
+            if (e && e.target && e.target.closest('[onclick="toggleMusic()"]')) {
+                return; 
+            }
+            if (isAutoScrolling) {
+                isAutoScrolling = false;
+                cancelAnimationFrame(autoScrollId);
+                window.removeEventListener('wheel', stopAutoScroll);
+                window.removeEventListener('touchmove', stopAutoScroll);
+                window.removeEventListener('mousedown', stopAutoScroll);
+                window.removeEventListener('touchstart', stopAutoScroll); 
+                document.removeEventListener('keydown', stopAutoScroll);
+            }
+        }
+
+        // OPEN INVITATION LOGIC WITH TRACKER
+        function openInvitation() {
+            const overlay = document.getElementById('blur-overlay');
+
+            weddingAudio.play().then(() => {
+                updateMusicUI();
+            }).catch(e => console.log("Audio playback failed:", e));
+
+            overlay.style.opacity = '0';
+            
+            setTimeout(() => {
+                overlay.style.display = 'none';
+                
+                isAutoScrolling = true;
+                window.addEventListener('wheel', stopAutoScroll, { passive: true });       
+                window.addEventListener('touchmove', stopAutoScroll, { passive: true });   
+                window.addEventListener('touchstart', stopAutoScroll, { passive: true }); 
+                window.addEventListener('mousedown', stopAutoScroll, { passive: true });   
+                document.addEventListener('keydown', stopAutoScroll, { passive: true });   
+
+                function autoScroll() {
+                    if (isAutoScrolling && (window.innerHeight + Math.ceil(window.scrollY) < document.documentElement.scrollHeight)) {
+                        window.scrollBy(0, 1); 
+                        autoScrollId = requestAnimationFrame(autoScroll);
+                    }
+                }
+                autoScroll();
+            }, 1000); 
+        }
+
+        function closeInvitation() {
+            stopAutoScroll();
+            weddingAudio.pause();
+            weddingAudio.currentTime = 0; 
+            updateMusicUI();
+            window.scrollTo({ top: 0, behavior: 'instant' });
+            const overlay = document.getElementById('blur-overlay');
+            overlay.style.display = 'flex';
+            setTimeout(() => {
+                overlay.style.opacity = '1';
+            }, 50);
+        }
+
+        /* --- LIGHTBOX GALLERY NAVIGATION LOGIC --- */
+        let galleryImages = [];
+        let currentIndex = 0;
+
+        function openLightbox(url) {
+            currentIndex = galleryImages.indexOf(url);
+            if (currentIndex === -1) currentIndex = 0;
+            updateLightboxImage();
+            document.getElementById('lightbox-modal').style.display = 'flex';
+        }
+
+        function closeLightbox() {
+            document.getElementById('lightbox-modal').style.display = 'none';
+        }
+
+        function changeSlide(direction) {
+            if (galleryImages.length === 0) return;
+            currentIndex += direction;
+            if (currentIndex < 0) {
+                currentIndex = galleryImages.length - 1;
+            } else if (currentIndex >= galleryImages.length) {
+                currentIndex = 0;
+            }
+            updateLightboxImage();
+        }
+
+        function updateLightboxImage() {
+            if (galleryImages.length > 0) {
+                document.getElementById('lightbox-img').src = galleryImages[currentIndex];
+            }
+        }
+
+        document.addEventListener('keydown', (e) => {
+            const modal = document.getElementById('lightbox-modal');
+            if (modal.style.display === 'flex') {
+                if (e.key === 'ArrowLeft') changeSlide(-1);
+                if (e.key === 'ArrowRight') changeSlide(1);
+                if (e.key === 'Escape') closeLightbox();
+            }
+        });
+
+        /* --- NAV TOGGLES --- */
+        function toggleLocationMenu(event) {
+            event.stopPropagation();
+            document.getElementById('locationSubMenu').classList.toggle('active');
+            document.getElementById('gallerySubMenu').classList.remove('active');
+        }
+
+        function toggleGalleryMenu(event) {
+            event.stopPropagation();
+            document.getElementById('gallerySubMenu').classList.toggle('active');
+            document.getElementById('locationSubMenu').classList.remove('active');
+        }
+
+        document.addEventListener('click', (e) => {
+            const locMenu = document.getElementById('locationSubMenu');
+            const galMenu = document.getElementById('gallerySubMenu');
+            if (locMenu && !locMenu.contains(e.target)) locMenu.classList.remove('active');
+            if (galMenu && !galMenu.contains(e.target)) galMenu.classList.remove('active');
+        });
+
+        function scrollToSection(id) {
+            const section = document.getElementById(id);
+            if (section) {
+                stopAutoScroll(); 
+                section.scrollIntoView({ behavior: 'smooth', block: 'start' });
+            }
+            const locMenu = document.getElementById('locationSubMenu');
+            const galMenu = document.getElementById('gallerySubMenu');
+            if (locMenu) locMenu.classList.remove('active');
+            if (galMenu) galMenu.classList.remove('active');
+        }
+
+        function toggleMusic() {
+            if (weddingAudio.paused) {
+                weddingAudio.play().then(updateMusicUI).catch(e => console.log("Playback error"));
+            } else {
+                weddingAudio.pause();
+                updateMusicUI();
+            }
+        }
+
+        function updateMusicUI() {
+            if (weddingAudio.paused) {
+                if (navMusicIcon) navMusicIcon.className = "fas fa-play";
+                if (navMusicText) navMusicText.innerText = "تشغيل";
+            } else {
+                if (navMusicIcon) navMusicIcon.className = "fas fa-pause";
+                if (navMusicText) navMusicText.innerText = "إيقاف";
+            }
+        }
+
+        /* ================= COUNTDOWN LOGIC ================= */
+        const targetDate = new Date("November 4, 2026 20:00:00").getTime();
+        setInterval(() => {
+            const diff = targetDate - new Date().getTime();
+            if (diff > 0) {
+                document.getElementById("days").innerText = Math.floor(diff / 86400000).toString().padStart(2, '0');
+                document.getElementById("hours").innerText = Math.floor((diff % 86400000) / 3600000).toString().padStart(2, '0');
+                document.getElementById("minutes").innerText = Math.floor((diff % 3600000) / 60000).toString().padStart(2, '0');
+                document.getElementById("seconds").innerText = Math.floor((diff % 60000) / 1000).toString().padStart(2, '0');
+            }
+        }, 1000);
+
+        /* ================= FIREBASE INITIALIZATION ================= */
+        const firebaseConfig = {
+            apiKey: "AIzaSyA77x9K906LWvFKF_Hby5mjlvZwqX10Dkw",
+            authDomain: "mirzam-invitations.firebaseapp.com",
+            projectId: "mirzam-invitations",
+            storageBucket: "mirzam-invitations.firebasestorage.app",
+            messagingSenderId: "1017281284114",
+            appId: "1:1017281284114:web:681b4f89a61606edfd70cb",
+            measurementId: "G-0R01RBPW1V"
+        };
+        firebase.initializeApp(firebaseConfig);
+        const db = firebase.firestore();
+
+        /* ================= CLOUDINARY CONFIGURATION ================= */
+        const CLOUDINARY_CLOUD_NAME = "k0qku3iy"; 
+        const CLOUDINARY_UPLOAD_PRESET = "MZ-396981-3441"; 
+        const CLOUDINARY_UPLOAD_URL = `https://api.cloudinary.com/v1_1/${CLOUDINARY_CLOUD_NAME}/auto/upload`;
+
+        /* ================= PLAN LIMITS ================= */
+        const ACTIVE_PLAN = "Aurora"; 
+        const PLAN_LIMITS = {
+            "Astra":  { totalPhotos: 50, totalVoice: 20, totalWishes: 100, userMaxPhotos: 3, userMaxVoices: 1, userMaxWishes: 1 },
+            "Aurora": { totalPhotos: 250, totalVoice: 100, totalWishes: 500, userMaxPhotos: 5, userMaxVoices: 2, userMaxWishes: 3 }
+        };
+
+        const MAX_TOTAL_PHOTOS = PLAN_LIMITS[ACTIVE_PLAN].totalPhotos;
+        const MAX_TOTAL_VOICES = PLAN_LIMITS[ACTIVE_PLAN].totalVoice;
+        const MAX_TOTAL_WISHES = PLAN_LIMITS[ACTIVE_PLAN].totalWishes;
+        const USER_MAX_PHOTOS = PLAN_LIMITS[ACTIVE_PLAN].userMaxPhotos;
+        const USER_MAX_VOICES = PLAN_LIMITS[ACTIVE_PLAN].userMaxVoices;
+        const USER_MAX_WISHES = PLAN_LIMITS[ACTIVE_PLAN].userMaxWishes;
+
+        let totalPhotoCount = 0;
+        let totalVoiceCount = 0;
+        let totalWishCount = 0;
+        let myWishCount = 0;
+
+        /* ================= RSVP SUBMISSION LOGIC ================= */
+        let currentGuestCount = 0;
+        const countDisplay = document.getElementById('guest-count-display');
+        const decreaseBtn = document.getElementById('decrease-guest-btn');
+        const increaseBtn = document.getElementById('increase-guest-btn');
+        const rsvpSubmitBtn = document.getElementById('rsvp-submit-btn');
+        const rsvpNameInput = document.getElementById('rsvp-name-input');
+
+        decreaseBtn.addEventListener('click', () => {
+            if (currentGuestCount > 0) {
+                currentGuestCount--;
+                countDisplay.innerText = currentGuestCount;
+            }
+        });
+
+        increaseBtn.addEventListener('click', () => {
+            if (currentGuestCount < 10) { 
+                currentGuestCount++;
+                countDisplay.innerText = currentGuestCount;
+            }
+        });
+
+        rsvpSubmitBtn.addEventListener('click', async () => {
+            const guestName = rsvpNameInput.value.trim();
+            
+            if (!guestName) {
+                alert("يرجى كتابة اسمك لتأكيد الحضور.");
+                return;
+            }
+
+            rsvpSubmitBtn.innerText = "جاري التأكيد...";
+            rsvpSubmitBtn.disabled = true;
+            rsvpSubmitBtn.style.opacity = "0.7";
+
+            try {
+                await db.collection("mz_396981_3441_rsvp").add({
+                    ownerId: myUserId,
+                    name: guestName,
+                    companions: currentGuestCount,
+                    timestamp: firebase.firestore.FieldValue.serverTimestamp()
+                });
+                
+                alert("تم تأكيد حضورك بنجاح! شكراً لك.");
+                rsvpSubmitBtn.innerText = "تم تأكيد الحضور ✔️";
+                rsvpNameInput.disabled = true;
+                decreaseBtn.disabled = true;
+                increaseBtn.disabled = true;
+                
+            } catch (error) {
+                console.error("RSVP Error: ", error);
+                alert("حدث خطأ أثناء تأكيد الحضور. يرجى المحاولة مرة أخرى.");
+                rsvpSubmitBtn.innerText = "تأكيد الحضور 💍";
+                rsvpSubmitBtn.disabled = false;
+                rsvpSubmitBtn.style.opacity = "1";
+            }
+        });
+
+        /* ================= PHOTO UPLOAD LOGIC ================= */
+        function compressImage(file, maxWidth = 800, quality = 0.6) {
+            return new Promise((resolve, reject) => {
+                const reader = new FileReader();
+                reader.readAsDataURL(file);
+                reader.onload = (event) => {
+                    const img = new Image();
+                    img.src = event.target.result;
+                    img.onload = () => {
+                        let width = img.width;
+                        let height = img.height;
+                        if (width > maxWidth) {
+                            height = Math.round((height * maxWidth) / width);
+                            width = maxWidth;
+                        }
+                        const canvas = document.createElement('canvas');
+                        canvas.width = width;
+                        canvas.height = height;
+                        const ctx = canvas.getContext('2d');
+                        ctx.drawImage(img, 0, 0, width, height);
+                        canvas.toBlob((blob) => {
+                            if (blob) resolve(blob);
+                            else reject(new Error('Canvas compression failed'));
+                        }, 'image/webp', quality);
+                    };
+                    img.onerror = (err) => reject(err);
+                };
+                reader.onerror = (err) => reject(err);
+            });
+        }
+
+        const photoInput = document.getElementById('photo-upload-input');
+        const uploadBtn = document.getElementById('upload-photo-btn');
+        const photoGrid = document.getElementById('guest-photo-grid');
+        let myPhotoCount = 0;
+
+        uploadBtn.addEventListener('click', () => {
+            if (totalPhotoCount >= MAX_TOTAL_PHOTOS) {
+                alert(`عذراً، المعرض ممتلئ (${MAX_TOTAL_PHOTOS} صورة كحد أقصى).`);
+                return;
+            }
+            if (myPhotoCount >= USER_MAX_PHOTOS) {
+                alert(`لقد وصلت للحد الأقصى المسموح لك وهو ${USER_MAX_PHOTOS} صور.`);
+                return;
+            }
+            photoInput.click();
+        });
+
+        photoInput.addEventListener('change', async (e) => {
+            const file = e.target.files[0];
+            if (!file) return;
+
+            if (!file.type.startsWith('image/')) {
+                alert("يُسمح برفع الصور فقط!");
+                photoInput.value = '';
+                return;
+            }
+
+            uploadBtn.innerHTML = '<i class="fas fa-spinner fa-spin" style="font-size: 24px; margin-bottom: 10px; display: block;"></i> جاري الرفع...';
+
+            try {
+                let fileToUpload = await compressImage(file, 800, 0.6);
+                let fileName = 'photo.webp';
+                const formData = new FormData();
+                formData.append('file', fileToUpload, fileName);
+                formData.append('upload_preset', CLOUDINARY_UPLOAD_PRESET);
+
+                const cloudinaryRes = await fetch(CLOUDINARY_UPLOAD_URL, {
+                    method: 'POST',
+                    body: formData
+                });
+                const cloudinaryData = await cloudinaryRes.json();
+                if (!cloudinaryData.secure_url) throw new Error("Cloudinary upload failed");
+
+                await db.collection("mz_396981_3441_photos").add({
+                    url: cloudinaryData.secure_url,
+                    type: 'image',
+                    ownerId: myUserId,
+                    timestamp: firebase.firestore.FieldValue.serverTimestamp()
+                });
+            } catch (error) {
+                console.error("Upload error: ", error);
+                alert("فشل الرفع. يرجى المحاولة مرة أخرى.");
+            } finally {
+                photoInput.value = ''; 
+                uploadBtn.innerHTML = '<i class="fas fa-camera-retro" style="font-size: 24px; margin-bottom: 10px; display: block;"></i> شارك صورة';
+            }
+        });
+
+        db.collection("mz_396981_3441_photos").orderBy("timestamp", "desc").onSnapshot((querySnapshot) => {
+            photoGrid.innerHTML = '';
+            myPhotoCount = 0;
+            totalPhotoCount = querySnapshot.size; 
+            galleryImages = []; 
+
+            querySnapshot.forEach((doc) => {
+                const data = doc.data();
+                if (data.ownerId === myUserId) myPhotoCount++;
+                galleryImages.push(data.url); 
+
+                const item = document.createElement('div');
+                item.className = 'guest-photo-item';
+                item.setAttribute('onclick', `openLightbox('${data.url}')`);
+
+                let deleteHTML = '';
+                if (isAdmin || data.ownerId === myUserId) {
+                    deleteHTML = `<button class="delete-btn" onclick="event.stopPropagation(); deleteItem('mz_396981_3441_photos', '${doc.id}')">حذف</button>`;
+                }
+
+                item.innerHTML = `
+                    ${deleteHTML}
+                    <img src="${data.url}" alt="Guest Memory">
+                `;
+                photoGrid.appendChild(item);
+            });
+        });
+
+        /* ================= VOICE RECORDING LOGIC ================= */
+        let mediaRecorder;
+        let audioChunks = [];
+        let isRecording = false;
+        let myVoiceCount = 0;
+
+        let recordTimer;
+        let secondsRecorded = 0;
+
+        const voiceBtn = document.getElementById('record-voice-btn');
+        const voiceText = document.getElementById('voice-status-text');
+        const voicesDisplay = document.getElementById('voice-messages-display');
+
+        voiceBtn.addEventListener('click', async () => {
+            if (!isRecording) {
+                if (totalVoiceCount >= MAX_TOTAL_VOICES) {
+                    alert(`صندوق الرسائل الصوتية ممتلئ (${MAX_TOTAL_VOICES} رسالة كحد أقصى).`);
+                    return;
+                }
+                if (myVoiceCount >= USER_MAX_VOICES) {
+                    alert(`لقد قمت بمشاركة رسالة صوتية مسبقاً (الحد المسموح هو ${USER_MAX_VOICES} لكل ضيف).`);
+                    return;
+                }
+
+                try {
+                    const stream = await navigator.mediaDevices.getUserMedia({ audio: true });
+                    let options = {};
+                    if (MediaRecorder.isTypeSupported('audio/webm;codecs=opus')) {
+                        options = { mimeType: 'audio/webm;codecs=opus', audioBitsPerSecond: 32000 };
+                    } else if (MediaRecorder.isTypeSupported('audio/mp4')) {
+                        options = { mimeType: 'audio/mp4', audioBitsPerSecond: 32000 };
+                    }
+
+                    try {
+                        mediaRecorder = new MediaRecorder(stream, options);
+                    } catch (e) {
+                        mediaRecorder = new MediaRecorder(stream);
+                    }
+
+                    mediaRecorder.start();
+                    isRecording = true;
+                    secondsRecorded = 0;
+                    voiceBtn.style.background = '#e74c3c';
+                    voiceBtn.style.color = 'white';
+                    voiceBtn.style.borderColor = '#e74c3c';
+                    voiceText.innerText = 'جاري التسجيل... 0ث / 60ث (اضغط للإيقاف)';
+
+                    recordTimer = setInterval(() => {
+                        secondsRecorded++;
+                        voiceText.innerText = `جاري التسجيل... ${secondsRecorded}ث / 60ث (اضغط للإيقاف)`;
+                        if (secondsRecorded >= 60) {
+                            mediaRecorder.stop();
+                            isRecording = false;
+                            clearInterval(recordTimer);
+                        }
+                    }, 1000);
+
+                    mediaRecorder.addEventListener("dataavailable", event => {
+                        audioChunks.push(event.data);
+                    });
+
+                    mediaRecorder.addEventListener("stop", async () => {
+                        clearInterval(recordTimer); 
+                        voiceBtn.style.background = 'var(--white)';
+                        voiceBtn.style.color = 'var(--rose)';
+                        voiceBtn.style.borderColor = 'var(--rose)';
+                        voiceText.innerText = 'جاري الرفع...';
+
+                        const audioBlob = new Blob(audioChunks); 
+                        audioChunks = [];
+
+                        try {
+                            const formData = new FormData();
+                            formData.append('file', audioBlob, 'voice.mp4');
+                            formData.append('upload_preset', CLOUDINARY_UPLOAD_PRESET);
+
+                            const cloudinaryRes = await fetch(CLOUDINARY_UPLOAD_URL, {
+                                method: 'POST',
+                                body: formData
+                            });
+                            const cloudinaryData = await cloudinaryRes.json();
+                            if (!cloudinaryData.secure_url) throw new Error("Cloudinary upload failed");
+
+                            await db.collection("mz_396981_3441_voice").add({
+                                url: cloudinaryData.secure_url,
+                                ownerId: myUserId,
+                                timestamp: firebase.firestore.FieldValue.serverTimestamp()
+                            });
+                        } catch (err) {
+                            console.error("Audio Upload error: ", err);
+                            alert("فشل رفع التسجيل الصوتي.");
+                        }
+
+                        voiceText.innerText = 'اضغط للتسجيل';
+                    });
+                } catch (err) {
+                    alert("تم رفض الوصول للميكروفون أو أنه غير مدعوم.");
+                }
+            } else {
+                mediaRecorder.stop();
+                isRecording = false;
+                clearInterval(recordTimer); 
+            }
+        });
+
+        db.collection("mz_396981_3441_voice").orderBy("timestamp", "desc").onSnapshot((querySnapshot) => {
+            voicesDisplay.innerHTML = '';
+            myVoiceCount = 0;
+            totalVoiceCount = querySnapshot.size; 
+
+            querySnapshot.forEach((doc) => {
+                const data = doc.data();
+                if (data.ownerId === myUserId) myVoiceCount++;
+
+                const item = document.createElement('div');
+                item.className = 'voice-item';
+
+                let deleteHTML = '';
+                if (isAdmin || data.ownerId === myUserId) {
+                    deleteHTML = `<button class="delete-btn" style="position:relative; top:0; left:0; right:auto;" onclick="deleteItem('mz_396981_3441_voice', '${doc.id}')">حذف</button>`;
+                }
+
+                item.innerHTML = `
+                    <audio controls src="${data.url}"></audio>
+                    ${deleteHTML}
+                `;
+                voicesDisplay.appendChild(item);
+            });
+        });
+
+        /* ================= GENERAL DELETE LOGIC ================= */
+        window.deleteItem = async function(collectionName, docId) {
+            if (!confirm('هل أنت متأكد من رغبتك في الحذف؟')) return;
+            try {
+                await db.collection(collectionName).doc(docId).delete();
+            } catch (error) {
+                console.error("Error deleting item:", error);
+            }
+        };
+
+        /* ================= GUESTBOOK LOGIC ================= */
+        const wishForm = document.getElementById('guestbook-form');
+        const wishesDisplay = document.getElementById('wishes-display');
+
+        wishForm.addEventListener('submit', (e) => {
+            e.preventDefault();
+
+            if (totalWishCount >= MAX_TOTAL_WISHES) {
+                alert(`سجل الزوار ممتلئ (${MAX_TOTAL_WISHES} أمنية كحد أقصى).`);
+                return;
+            }
+            if (myWishCount >= USER_MAX_WISHES) {
+                alert(`لقد وصلت للحد الأقصى المسموح لك وهو ${USER_MAX_WISHES} أمنية.`);
+                return;
+            }
+
+            db.collection("mz_396981_3441_wishes").add({
+                ownerId: myUserId,
+                name: document.getElementById('guest-name').value,
+                wish: document.getElementById('guest-wish').value,
+                timestamp: firebase.firestore.FieldValue.serverTimestamp()
+            }).then(() => {
+                wishForm.reset(); 
+            }).catch((error) => console.error("Error writing document: ", error));
+        });
+
+        db.collection("mz_396981_3441_wishes").orderBy("timestamp", "desc").onSnapshot((querySnapshot) => {
+            wishesDisplay.innerHTML = '';
+            totalWishCount = querySnapshot.size;
+            myWishCount = 0;
+
+            querySnapshot.forEach((doc) => {
+                const item = doc.data();
+                if (item.ownerId === myUserId) myWishCount++;
+
+                const card = document.createElement('div');
+                card.className = 'wish-card';
+                
+                const deleteBtn = (item.ownerId === myUserId || isAdmin) 
+                    ? `<button class="delete-wish-btn" onclick="deleteItem('mz_396981_3441_wishes', '${doc.id}')">حذف</button>` 
+                    : '';
+                    
+                card.innerHTML = `<h4>${item.name}</h4><p>"${item.wish}"</p>${deleteBtn}`;
+                wishesDisplay.appendChild(card);
+            });
+        });
+    </script>
+</body>
+</html>
