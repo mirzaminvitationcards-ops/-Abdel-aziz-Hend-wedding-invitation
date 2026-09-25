@@ -110,9 +110,9 @@
         .rsvp-confirm-btn { width: 100%; padding: 16px; background: var(--rose); color: var(--white); border: none; border-radius: 50px; font-weight: 700; font-size: 16px; cursor: pointer; transition: 0.3s; font-family: 'Tajawal', sans-serif;}
         .rsvp-confirm-btn:hover { background: #8e656c; box-shadow: 0 5px 15px var(--rose-light); }
 
-        /* Admin Check Guests Button (Made smaller and placed inside the box) */
+        /* Admin Check Guests Button */
         .admin-check-btn {
-            display: none; /* Hidden by default */
+            display: block; /* Visible to all */
             margin: 15px auto 0;
             padding: 8px 25px;
             background: transparent;
@@ -428,7 +428,6 @@
         if (urlParams.get('admin') === 'true') {
             localStorage.setItem('is_wedding_admin', 'true');
             window.history.replaceState({}, document.title, window.location.pathname);
-            alert("تم تفعيل وضع المسؤول. يمكنك الآن حذف أي رسالة أو صورة ومراجعة قائمة الضيوف.");
         }
         const isAdmin = localStorage.getItem('is_wedding_admin') === 'true';
 
@@ -436,12 +435,17 @@
         localStorage.setItem('wedding_user_id', myUserId);
 
         /* ================= ADMIN DASHBOARD LOGIC ================= */
-        function openAdminModal() { document.getElementById('admin-modal-overlay').style.display = 'flex'; }
+        function openAdminModal() { 
+            if (isAdmin) {
+                document.getElementById('admin-modal-overlay').style.display = 'flex'; 
+            } else {
+                alert("عذراً، هذه الصفحة مخصصة للمسؤولين فقط.");
+            }
+        }
+        
         function closeAdminModal() { document.getElementById('admin-modal-overlay').style.display = 'none'; }
 
         if (isAdmin) {
-            document.getElementById('admin-check-btn').style.display = 'block';
-            
             // Listen to Opens
             db.collection("mz_396981_3441_opens").onSnapshot(snap => {
                 document.getElementById('admin-opens-count').innerText = snap.size;
