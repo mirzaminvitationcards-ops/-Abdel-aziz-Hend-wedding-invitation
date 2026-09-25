@@ -110,16 +110,16 @@
         .rsvp-confirm-btn { width: 100%; padding: 16px; background: var(--rose); color: var(--white); border: none; border-radius: 50px; font-weight: 700; font-size: 16px; cursor: pointer; transition: 0.3s; font-family: 'Tajawal', sans-serif;}
         .rsvp-confirm-btn:hover { background: #8e656c; box-shadow: 0 5px 15px var(--rose-light); }
 
-        /* Admin Check Guests Button */
+        /* Admin Check Guests Button (Made smaller and placed inside the box) */
         .admin-check-btn {
             display: none; /* Hidden by default */
-            margin: 25px auto 0;
-            padding: 12px 35px;
+            margin: 15px auto 0;
+            padding: 8px 25px;
             background: transparent;
-            border: 1.5px solid #c2c9d6;
+            border: 1px solid #c2c9d6;
             border-radius: 50px;
             font-family: 'Tajawal', sans-serif;
-            font-size: 15px;
+            font-size: 12px;
             font-weight: 800;
             color: #1a1a1a;
             cursor: pointer;
@@ -321,10 +321,10 @@
                 </div>
 
                 <button type="button" class="rsvp-confirm-btn" id="rsvp-submit-btn">تأكيد الحضور 💍</button>
+                
+                <!-- ADMIN ONLY BUTTON -->
+                <button class="admin-check-btn" id="admin-check-btn" onclick="openAdminModal()">التحقق من عدد الضيوف</button>
             </div>
-            
-            <!-- ADMIN ONLY BUTTON -->
-            <button class="admin-check-btn" id="admin-check-btn" onclick="openAdminModal()">التحقق من عدد الضيوف</button>
         </div>
 
         <!-- GUEST PHOTO-ONLY GALLERY SECTION -->
